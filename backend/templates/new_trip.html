@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Trip</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: #e2e8f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .card {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            color: #0f172a;
+            border-left: 5px solid #f97316;
+            padding-left: 1rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        label {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        .required {
+            color: #e11d48;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            font-family: inherit;
+            background: white;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249,115,22,0.2);
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        .row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        small {
+            color: #475569;
+            font-size: 0.7rem;
+            margin-top: 0.3rem;
+            display: block;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        button {
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            border-radius: 40px;
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .btn-cancel {
+            background: #f1f5f9;
+            color: #334155;
+        }
+        .btn-cancel:hover {
+            background: #e2e8f0;
+        }
+        .btn-save {
+            background: #f97316;
+            color: white;
+        }
+        .btn-save:hover {
+            background: #ea580c;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>✈️ New Trip</h1>
+
+    <form id="tripForm">
+        <!-- Truck - TEXT INPUT (not select) -->
+        <div class="form-group">
+            <label>Truck <span class="required">*</span></label>
+            <input type="text" id="truck" name="truck" placeholder="e.g. Scania R450 - ABC 123" required>
+        </div>
+
+        <!-- Driver - TEXT INPUT (not select) -->
+        <div class="form-group">
+            <label>Driver <span class="required">*</span></label>
+            <input type="text" id="driver" name="driver" placeholder="e.g. John Kamau" required>
+        </div>
+
+        <!-- Freight Amount -->
+        <div class="form-group">
+            <label>Freight Amount ($) <span class="required">*</span></label>
+            <input type="number" id="freight" name="freight" placeholder="e.g. 1850" step="0.01" required>
+        </div>
+
+        <!-- Origin and Destination side by side -->
+        <div class="row">
+            <div class="form-group">
+                <label>Origin <span class="required">*</span></label>
+                <input type="text" id="origin" name="origin" placeholder="e.g. Masvingo" required>
+            </div>
+            <div class="form-group">
+                <label>Destination <span class="required">*</span></label>
+                <input type="text" id="destination" name="destination" placeholder="e.g. Kafue" required>
+            </div>
+        </div>
+
+        <!-- Departure Date/Time -->
+        <div class="form-group">
+            <label>Departure Date/Time <span class="required">*</span></label>
+            <input type="datetime-local" id="departure" name="departure" value="2026-06-11T12:12" required>
+        </div>
+
+        <!-- Status - TEXT INPUT (editable, not a dropdown) -->
+        <div class="form-group">
+            <label>Status</label>
+            <input type="text" id="status" name="status" value="Planned" placeholder="e.g. Planned, In Transit, Delivered">
+            <small>You can type any status you want</small>
+        </div>
+
+        <!-- Cargo Description -->
+        <div class="form-group">
+            <label>Cargo Description <span class="required">*</span></label>
+            <textarea id="cargo" name="cargo" placeholder="e.g. Iron Spongy Ferrous" required></textarea>
+        </div>
+
+        <div class="buttons">
+            <button type="button" class="btn-cancel" onclick="cancelForm()">Cancel</button>
+            <button type="submit" class="btn-save">Save</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('tripForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = {
+            truck: document.getElementById('truck').value,
+            driver: document.getElementById('driver').value,
+            freight: document.getElementById('freight').value,
+            origin: document.getElementById('origin').value,
+            destination: document.getElementById('destination').value,
+            departure: document.getElementById('departure').value,
+            status: document.getElementById('status').value,
+            cargo: document.getElementById('cargo').value
+        };
+        console.log('Trip Data:', formData);
+        alert('Trip saved!\n\n' + JSON.stringify(formData, null, 2));
+    });
+
+    function cancelForm() {
+        if (confirm('Discard changes?')) {
+            document.getElementById('tripForm').reset();
+            document.getElementById('departure').value = '2026-06-11T12:12';
+            document.getElementById('status').value = 'Planned';
+        }
+    }
+</script>
+</body>
+</html>
