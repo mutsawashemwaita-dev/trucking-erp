@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const API = "http://localhost:8001/api";
+const API = "https://trucking-erp-production-a825.up.railway.app/api";
 
 // ── Auth helpers ───────────────────────────────────────────────────────────────
 function getToken() { return localStorage.getItem("ntc_token"); }
