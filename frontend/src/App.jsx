@@ -127,7 +127,7 @@ function Login({ onLogin }) {
         <div style={{ textAlign:"center", marginBottom:28 }}>
           <div style={{ fontSize:28, fontWeight:800, color:"#1a3a5c", letterSpacing:0.5 }}>NTC</div>
           <div style={{ fontSize:13, color:"#6b7280", marginTop:4 }}>Invoicing & Fleet Management</div>
-          <div style={{ fontSize:11, color:"#9ca3af", marginTop:2 }}>Geotale Infinity Investments</div>
+          <div style={{ fontSize:11, color:"#9ca3af", marginTop:2 }}>BARKERVILLE FREIGHT</div>
         </div>
         {error && <div style={{ background:"#fee2e2", color:"#dc2626", padding:"10px 14px", borderRadius:8, marginBottom:14, fontSize:13 }}>{error}</div>}
         <Field label="Username">
@@ -162,7 +162,7 @@ function Dashboard() {
   return (
     <div style={{ padding:"24px 28px" }}>
       <h1 style={{ fontSize:22, fontWeight:700, color:"#1a3a5c", margin:"0 0 4px" }}>Dashboard</h1>
-      <p style={{ color:"#6b7280", margin:"0 0 24px", fontSize:14 }}>Geotale Infinity Investments — Fleet Overview</p>
+      <p style={{ color:"#6b7280", margin:"0 0 24px", fontSize:14 }}>BARKERVILLE FREIGHT — Fleet Overview</p>
       <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit,minmax(160px,1fr))", gap:14, marginBottom:28 }}>
         <StatCard icon="🚛" label="Total Trucks" value={stats.total_trucks} sub={`${stats.active_trucks} active`} />
         <StatCard icon="👷" label="Total Drivers" value={stats.total_drivers} sub={`${stats.available_drivers} available`} />
@@ -812,7 +812,7 @@ export default function App() {
       <div style={{width:220,background:"#1a3a5c",display:"flex",flexDirection:"column",flexShrink:0}}>
         <div style={{padding:"22px 20px 16px",borderBottom:"1px solid rgba(255,255,255,0.1)"}}>
           <div style={{fontSize:16,fontWeight:800,color:"#fff",letterSpacing:0.5}}>NTC Invoicing</div>
-          <div style={{fontSize:10,color:"rgba(255,255,255,0.5)",marginTop:2,letterSpacing:1,textTransform:"uppercase"}}>Geotale Infinity</div>
+          <div style={{fontSize:10,color:"rgba(255,255,255,0.5)",marginTop:2,letterSpacing:1,textTransform:"uppercase"}}>BARKERVILLE FREIGHT</div>
         </div>
         <nav style={{padding:"12px 0",flex:1}}>
           {NAV.map(n=>(
