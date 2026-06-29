@@ -102,7 +102,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 # Company details used in PDF invoice generation
 COMPANY_NAME = "BARKERVILLE FREIGHT"
-COMPANY_ADDRESS = "532/319 Halford Avenue Prospect Waterfalls"
+COMPANY_ADDRESS = "1027 Unit G Makoni Chitungwiza"
 COMPANY_CITY = "Harare, Zimbabwe"
-COMPANY_TAX_NUMBER = "2001825603"
+COMPANY_TAX_NUMBER = "+263 786774754"
 COMPANY_EMAIL = "nickchikasha@gmail.com"
